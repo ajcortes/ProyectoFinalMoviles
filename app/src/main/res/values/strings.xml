@@ -4,4 +4,22 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="textTitle">Titulo</string>
     <string name="textBudget">Presupuesto</string>
+    <string name="duration">Duracion:</string>
+    <string name="year">Fecha salida:</string>
+    <string name="genre">Genero</string>
+    <string name="minutes">minutos</string>
+    <string name="percentaje">porcentaje</string>
+    <string name="back">Volver</string>
+    <string name="percentaje_example">95/100</string>
+    <string name="resumen">Resumen</string>
+    <string name="duration_example">124 mins</string>
+    <string name="year_example">1986</string>
+    <string name="ganancias_example">10000000 $</string>
+    <string name="ganancias">Ganancia:</string>
+    <string name="presupuesto_example">10000000 $</string>
+    <string name="presupuesto">Presupuesto:</string>
+    <string name="japan_example">La princesa mononoke</string>
+    <string name="genero">Genero:</string>
+    <string name="genero_example">Comedia</string>
+    <string name="state">Estado:</string>
 </resources>

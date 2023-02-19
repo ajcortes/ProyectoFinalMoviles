@@ -1,11 +1,10 @@
-package com.ajcortes.proyectofinalmoviles.ui.movielist
+package com.ajcortes.proyectofinalmoviles.ui.moviedetails
 
 import android.text.Spannable.Factory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.ajcortes.proyectofinalmoviles.data.Movie
 import com.ajcortes.proyectofinalmoviles.dependencies.ProyectoFinalMoviles
 import com.ajcortes.proyectofinalmoviles.repositories.MoviesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,47 +13,44 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class MovieListVM(
-    private val moviesRepository: MoviesRepository
-) : ViewModel() {
+class MovieDetailsVM( private val moviesRepository: MoviesRepository) : ViewModel() {
 
-    private val _uiState : MutableStateFlow<MovieListUiState> = MutableStateFlow(MovieListUiState())
-    val uiState : StateFlow<MovieListUiState> = _uiState.asStateFlow()
+    private val _uiState : MutableStateFlow<MovieDetailsUiState> = MutableStateFlow(
+        MovieDetailsUiState()
+    )
 
-    init{
-        getSomeMovies(NUM_FILMS)
+    val uiState : StateFlow<MovieDetailsUiState> = _uiState.asStateFlow()
+
+    init {
     }
 
-    private fun getSomeMovies(numFilms : Int){
+    fun setMovie(idMovie: Int){
         viewModelScope.launch {
-            val myMovieResp = moviesRepository.getSomeMovies(numFilms)
-
-            if(myMovieResp.isSuccessful) {
-                val myMovies = myMovieResp.body()
-                _uiState.update { currentState ->
-                    currentState.copy(
+            val movieResp = moviesRepository.getMovie(idMovie)
+            if(movieResp.isSuccessful){
+                val movie = movieResp.body()
+                _uiState.update {
+                    it.copy(
                         isLoading = false,
-                        movieList = (myMovies?.let { it.toList() } ?: emptyList()) as List<Movie>
+                        movie = movie
                     )
                 }
             }else{
-                //Fallo
+                //Error
             }
         }
     }
 
-    companion object {
-        const val NUM_FILMS = 3
-
+    companion object{
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory{
             @Suppress("UNCHECKED_CAST")
             override fun <T : ViewModel> create(
-                modelClass: Class<T>,
+                modelClass : Class<T>,
                 extras: CreationExtras
             ): T {
                 val application = checkNotNull(extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY])
 
-                return MovieListVM(
+                return MovieDetailsVM(
                     (application as ProyectoFinalMoviles).appContainer.moviesRepository
                 ) as T
             }

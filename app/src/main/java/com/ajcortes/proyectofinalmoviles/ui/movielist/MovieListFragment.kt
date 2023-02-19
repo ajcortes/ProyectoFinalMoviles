@@ -11,10 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ajcortes.proyectofinalmoviles.adapter.MovieAdapter
 import com.ajcortes.proyectofinalmoviles.data.Movie
 import com.ajcortes.proyectofinalmoviles.databinding.FragmentMovieListBinding
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
 class MovieListFragment : Fragment() {
@@ -59,7 +61,8 @@ class MovieListFragment : Fragment() {
     private fun initRecview(){
         movieAdapter = MovieAdapter(
             _movieList = mutableListOf(),
-            onClickMovie = { movieId -> selectMovie(movieId)}
+            onClickMovie = { movieId -> selectMovie(movieId)},
+            onClickFavourite = { movieId -> favouriteMovie(movieId)}
         )
 
         binding.rvMovies.adapter = movieAdapter
@@ -83,7 +86,12 @@ class MovieListFragment : Fragment() {
         }
     }
 
-    private fun selectMovie(movieId: String){
-//        val action = MovieListFragmentDirections.actionMovieListFra
+    private fun selectMovie(movieId: Int){
+        val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId)
+        findNavController().navigate(action)
+    }
+
+    private fun favouriteMovie(movieId: Int){
+        Snackbar.make(requireView(),"Gola", Snackbar.LENGTH_SHORT).show()
     }
 }

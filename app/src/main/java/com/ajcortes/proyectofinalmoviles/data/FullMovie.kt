@@ -3,19 +3,32 @@ package com.ajcortes.proyectofinalmoviles.data
 import com.google.gson.annotations.SerializedName
 
 data class FullMovie(
-    @SerializedName("id") val id: Int,
+    @SerializedName("adult") val adult: Boolean,
+    @SerializedName("backdrop_path") val backdrop_path: String,
+    @SerializedName("belongs_to_collection") val belongs_to_collection: Object,
     @SerializedName("budget") val budget: Int,
-    @SerializedName("title") val title: String,
+    @SerializedName("genres") val genres: List<Genres>,
+    @SerializedName("homepage") val homepage: String,
+    @SerializedName("id") val id: Int,
+    @SerializedName("imdb_id") val imdb_id: String,
+    @SerializedName("originial_language") val originial_language: String,
+    @SerializedName("originial_title") val originial_title: String,
     @SerializedName("overview") val overview: String,
     @SerializedName("popularity") val popularity: Number,
-    @SerializedName("vote_average") val vote_average: Number,
-    @SerializedName("vote_count") val vote_count: Int,
     @SerializedName("poster_path") val poster_path: String,
-    @SerializedName("backdrop_path") val backdrop_path: String,
+    @SerializedName("production_companies") val production_companies: List<ProductionCompanies>,
+    @SerializedName("production_countries") val production_countries: List<ProductionCountries>,
+    @SerializedName("release_date") val release_date: String,
     @SerializedName("revenue") val revenue: Int,
     @SerializedName("runtime") val runtime: Int,
-    @SerializedName("release_date") val release_date: String,
-    @SerializedName("genres") val genres: Genres
+    @SerializedName("spoken_languages") val spoken_languages: List<SpokenLanguages>,
+    @SerializedName("status") val status: String,
+    @SerializedName("tagline") val tagline: String,
+    @SerializedName("title") val title: String,
+    @SerializedName("video") val video: Boolean,
+    @SerializedName("vote_average") val vote_average: Number,
+    @SerializedName("vote_count") val vote_count: Int,
+
 ){
     fun toMovie() : Movie{
         return Movie(
@@ -26,12 +39,13 @@ data class FullMovie(
             popularity = popularity,
             vote_average = vote_average,
             vote_count = vote_count,
-            poster_path = poster_path,
-            backdrop_path = backdrop_path,
+            poster_path = if(poster_path == null) "" else poster_path,
+            backdrop_path = if(backdrop_path == null) "" else backdrop_path,
             revenue = revenue,
             runtime = runtime,
             release_date = release_date,
-            genre = genres.name
+            status = status,
+            genre = genres.get(0).name
         )
     }
 
@@ -41,6 +55,23 @@ data class FullMovie(
 }
 
 data class Genres(
-    @SerializedName("id") val idGenre: Int,
+    @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String
+)
+
+data class ProductionCompanies(
+    @SerializedName("name") val name: String,
+    @SerializedName("id") val id: Int,
+    @SerializedName("logo_path") val logo_path: String,
+    @SerializedName("origin_country") val origin_country: String
+)
+
+data class ProductionCountries(
+    @SerializedName("iso_3166_1") val iso_3166_1: String,
+    @SerializedName("name") val name: String,
+)
+
+data class SpokenLanguages(
+    @SerializedName("iso_639_1") val iso_639_1: String,
+    @SerializedName("name") val name: String,
 )

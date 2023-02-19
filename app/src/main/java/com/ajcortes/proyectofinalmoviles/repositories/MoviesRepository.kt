@@ -4,6 +4,7 @@ import com.ajcortes.proyectofinalmoviles.api.ApiService
 import com.ajcortes.proyectofinalmoviles.data.FullMovie
 import com.ajcortes.proyectofinalmoviles.data.Movie
 import retrofit2.Response
+import kotlin.random.Random
 
 class MoviesRepository(
     val movieApiService: ApiService
@@ -30,8 +31,25 @@ class MoviesRepository(
             return Response.error(null,null)
     }
 
-    suspend fun getPopularMovies(page : Int) : Response<List<Movie>>
+    suspend fun getRandMovie() : Response<Movie>{
+        var myMovie : Movie? = null
+        val seed = System.currentTimeMillis()
+        var x = (1 .. NUM_MOVIES).random(Random(seed))
+        return getMovie(x)
+    }
+
+    suspend fun getSomeMovies(num : Int) : Response<List<Movie>>
     {
-        return movieApiService.getPopularMovies()
+        var movieList : MutableList<Movie> = mutableListOf()
+        for(i in 1 .. num) {
+            val movieResp = getRandMovie()
+            if(movieResp.isSuccessful){
+                movieResp.body()?.let { movieList.add(movieList.size, movieResp.body()!!)}
+            }else{
+                return Response.error(null,null)
+            }
+        }
+
+        return Response.success(movieList)
     }
 }

@@ -10,11 +10,12 @@ import com.ajcortes.proyectofinalmoviles.databinding.MovieItemBinding
 
 class MovieAdapter(
     private var _movieList : MutableList<Movie>,
-    private val onClickMovie : (String) -> Unit
+    private val onClickMovie : (Int) -> Unit,
+    private val onClickFavourite: (Int) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     companion object{
-
+        const val DRAWABLE = "drawable"
     }
 
     val movieList get() = _movieList
@@ -25,13 +26,24 @@ class MovieAdapter(
 
         fun bind(
             movie: Movie,
-            onClickMovie: (String) -> Unit
+            onClickMovie: (Int) -> Unit,
+            onClickFavourite: (Int) -> Unit
         ){
-            binding.textTitle.text = movie.title
-            binding.textBudget.text = movie.budget.toString()
+            val context = binding.ivPortada.context
+            val idPortada = context.resources.getIdentifier("princess_mononoke", DRAWABLE,context.packageName)
+            binding.ivPortada.setImageResource(idPortada)
+
+            binding.tvTitle.text = movie.title
+            binding.tvYearRelease.text = movie.release_date
+            binding.tvDuration.text = movie.runtime.toString()
+            binding.tvGenre.text = movie.genre
 
             binding.root.setOnClickListener{
-                onClickMovie(movie.id.toString())
+                onClickMovie(movie.id)
+            }
+
+            binding.ivStar.setOnClickListener{
+                onClickFavourite(movie.id)
             }
         }
 
@@ -44,7 +56,7 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie = movieList[position]
-        holder.bind(movie,onClickMovie)
+        holder.bind(movie,onClickMovie,onClickFavourite)
     }
 
     override fun getItemCount(): Int {
