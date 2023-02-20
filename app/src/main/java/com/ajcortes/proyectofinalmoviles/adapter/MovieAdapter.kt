@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ajcortes.proyectofinalmoviles.R
-import com.ajcortes.proyectofinalmoviles.data.Movie
+import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 import com.ajcortes.proyectofinalmoviles.databinding.MovieItemBinding
 
 class MovieAdapter(
-    private var _movieList : MutableList<Movie>,
+    private var _movieList : MutableList<PopularMovie>,
     private val onClickMovie : (Int) -> Unit,
     private val onClickFavourite: (Int) -> Unit
 ) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
@@ -25,7 +25,7 @@ class MovieAdapter(
         private val binding = MovieItemBinding.bind(view)
 
         fun bind(
-            movie: Movie,
+            movie: PopularMovie,
             onClickMovie: (Int) -> Unit,
             onClickFavourite: (Int) -> Unit
         ){
@@ -35,8 +35,8 @@ class MovieAdapter(
 
             binding.tvTitle.text = movie.title
             binding.tvYearRelease.text = movie.release_date
-            binding.tvDuration.text = movie.runtime.toString()
-            binding.tvGenre.text = movie.genre
+//            binding.tvDuration.text = movie.runtime.toString()
+//            binding.tvGenre.text = movie.genre
 
             binding.root.setOnClickListener{
                 onClickMovie(movie.id)
@@ -63,7 +63,7 @@ class MovieAdapter(
         return movieList.size
     }
 
-    fun setMovieList(movies : List<Movie>){
+    fun setMovieList(movies : List<PopularMovie>){
         _movieList = movies.toMutableList()
     }
 

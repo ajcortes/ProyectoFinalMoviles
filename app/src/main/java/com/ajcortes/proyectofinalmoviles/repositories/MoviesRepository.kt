@@ -1,8 +1,7 @@
 package com.ajcortes.proyectofinalmoviles.repositories
 
 import com.ajcortes.proyectofinalmoviles.api.ApiService
-import com.ajcortes.proyectofinalmoviles.data.FullMovie
-import com.ajcortes.proyectofinalmoviles.data.Movie
+import com.ajcortes.proyectofinalmoviles.data.*
 import retrofit2.Response
 import kotlin.random.Random
 
@@ -51,5 +50,9 @@ class MoviesRepository(
         }
 
         return Response.success(movieList)
+    }
+
+    suspend fun getPopoularMovies() : Response<PopularMoviesResponse> {
+        return movieApiService.getPopularMovies()
     }
 }

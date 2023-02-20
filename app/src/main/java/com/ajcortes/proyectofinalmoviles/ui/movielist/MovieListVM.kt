@@ -1,11 +1,12 @@
 package com.ajcortes.proyectofinalmoviles.ui.movielist
 
-import android.text.Spannable.Factory
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
 import com.ajcortes.proyectofinalmoviles.data.Movie
+import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 import com.ajcortes.proyectofinalmoviles.dependencies.ProyectoFinalMoviles
 import com.ajcortes.proyectofinalmoviles.repositories.MoviesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,19 +23,26 @@ class MovieListVM(
     val uiState : StateFlow<MovieListUiState> = _uiState.asStateFlow()
 
     init{
-        getSomeMovies(NUM_FILMS)
+        getPopularMovies()
+//        getSomeMovies(NUM_FILMS)
     }
 
-    private fun getSomeMovies(numFilms : Int){
+    private fun getPopularMovies(){
         viewModelScope.launch {
-            val myMovieResp = moviesRepository.getSomeMovies(numFilms)
+            val myMovieResp = moviesRepository.getPopoularMovies()
 
             if(myMovieResp.isSuccessful) {
-                val myMovies = myMovieResp.body()
+                val moviesResp = myMovieResp.body()
+                val myMovies = moviesResp?.results
+                myMovies?.let {
+                    it.forEach { movie ->
+                        Log.d("myApi",movie.title)
+                    }
+                }
                 _uiState.update { currentState ->
                     currentState.copy(
                         isLoading = false,
-                        movieList = (myMovies?.let { it.toList() } ?: emptyList()) as List<Movie>
+                        movieList = (myMovies?.let { it.toList() } ?: emptyList())
                     )
                 }
             }else{
@@ -43,8 +51,26 @@ class MovieListVM(
         }
     }
 
+//    private fun getSomeMovies(numFilms : Int){
+//        viewModelScope.launch {
+//            val myMovieResp = moviesRepository.getSomeMovies(numFilms)
+//
+//            if(myMovieResp.isSuccessful) {
+//                val myMovies = myMovieResp.body()
+//                _uiState.update { currentState ->
+//                    currentState.copy(
+//                        isLoading = false,
+//                        movieList = (myMovies?.let { it.toList() } ?: emptyList()) as List<Movie>
+//                    )
+//                }
+//            }else{
+//                //Fallo
+//            }
+//        }
+//    }
+
     companion object {
-        const val NUM_FILMS = 3
+        const val NUM_FILMS = 10
 
         val Factory: ViewModelProvider.Factory = object : ViewModelProvider.Factory{
             @Suppress("UNCHECKED_CAST")
