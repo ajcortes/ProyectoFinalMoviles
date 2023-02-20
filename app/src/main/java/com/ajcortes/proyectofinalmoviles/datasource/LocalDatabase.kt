@@ -8,7 +8,7 @@ import com.ajcortes.proyectofinalmoviles.data.Movie
 
 @Database(
     entities = [Movie::class],
-    version = 2,
+    version = 1,
     exportSchema = false
 )
 abstract class LocalDatabase : RoomDatabase() {
