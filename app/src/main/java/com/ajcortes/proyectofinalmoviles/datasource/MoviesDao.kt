@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.ajcortes.proyectofinalmoviles.data.Movie
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MoviesDao {

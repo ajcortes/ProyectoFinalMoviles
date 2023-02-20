@@ -2,11 +2,18 @@ package com.ajcortes.proyectofinalmoviles.repositories
 
 import com.ajcortes.proyectofinalmoviles.api.ApiService
 import com.ajcortes.proyectofinalmoviles.data.*
+import com.ajcortes.proyectofinalmoviles.datasource.MoviesDao
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 import kotlin.random.Random
 
 class MoviesRepository(
-    val movieApiService: ApiService
+    val movieApiService: ApiService,
+//    private val moviesDao: MoviesDao,
+//    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
     companion object{
@@ -55,4 +62,16 @@ class MoviesRepository(
     suspend fun getPopoularMovies() : Response<PopularMoviesResponse> {
         return movieApiService.getPopularMovies()
     }
+//
+//    suspend fun insertMovie(movie : Movie) = withContext(ioDispatcher){
+//        moviesDao.insertMovie(movie)
+//    }
+//
+//    suspend fun deleteMovie(movie : Movie) = withContext(ioDispatcher){
+//        moviesDao.deleteMovie(movie)
+//    }
+//
+//    suspend fun getFavMovies() : List<Movie> {
+//        return moviesDao.getAllMovies()
+//    }
 }
