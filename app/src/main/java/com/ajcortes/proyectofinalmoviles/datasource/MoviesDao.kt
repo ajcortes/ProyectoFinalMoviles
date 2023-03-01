@@ -18,5 +18,8 @@ interface MoviesDao {
     suspend fun deleteMovie(movie: Movie)
 
     @Query("SELECT * FROM movies")
-    suspend fun getAllMovies() : List<Movie>
+    fun getAllMovies() : Flow<List<Movie>>
+
+    @Query("SELECT * FROM movies WHERE id LIKE :id")
+    suspend fun getMovie(id : Int): Movie?
 }

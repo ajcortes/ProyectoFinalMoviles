@@ -1,4 +1,4 @@
-package com.ajcortes.proyectofinalmoviles.ui.moviedetails
+package com.ajcortes.proyectofinalmoviles.ui.movieDetails
 
 import com.ajcortes.proyectofinalmoviles.data.Movie
 

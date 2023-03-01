@@ -1,12 +1,10 @@
-package com.ajcortes.proyectofinalmoviles.ui.movielist
+package com.ajcortes.proyectofinalmoviles.ui.movieList
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.ajcortes.proyectofinalmoviles.data.Movie
-import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 import com.ajcortes.proyectofinalmoviles.dependencies.ProyectoFinalMoviles
 import com.ajcortes.proyectofinalmoviles.repositories.MoviesRepository
 import kotlinx.coroutines.flow.MutableStateFlow

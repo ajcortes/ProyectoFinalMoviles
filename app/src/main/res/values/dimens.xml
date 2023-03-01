@@ -5,4 +5,6 @@
     <dimen name="tvDate">4dp</dimen>
     <dimen name="wAllScreen">320dp</dimen>
     <dimen name="hOverview">220dp</dimen>
+    <dimen name="heightLogin">60dp</dimen>
+    <dimen name="medium_margin">50dp</dimen>
 </resources>

@@ -1,6 +1,5 @@
-package com.ajcortes.proyectofinalmoviles.ui.moviedetails
+package com.ajcortes.proyectofinalmoviles.ui.movieDetails
 
-import android.text.Spannable.Factory
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope

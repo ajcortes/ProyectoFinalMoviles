@@ -12,9 +12,25 @@ import kotlin.random.Random
 
 class MoviesRepository(
     val movieApiService: ApiService,
-//    private val moviesDao: MoviesDao,
-//    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val moviesDao: MoviesDao,
+    private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
+
+    suspend fun insertMovie(movie : Movie) = withContext(ioDispatcher){
+        moviesDao.insertMovie(movie)
+    }
+
+    suspend fun deleteMovie(movie : Movie) = withContext(ioDispatcher){
+        moviesDao.deleteMovie(movie)
+    }
+
+    fun getFavMovies() : Flow<List<Movie>>{
+        return moviesDao.getAllMovies()
+    }
+
+    suspend fun getMovieDT(id: Int) = withContext(ioDispatcher){
+        return@withContext moviesDao.getMovie(id)
+    }
 
     companion object{
         const val NUM_MOVIES = 500

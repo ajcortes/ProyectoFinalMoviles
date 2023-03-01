@@ -1,6 +1,5 @@
-package com.ajcortes.proyectofinalmoviles.ui.movielist
+package com.ajcortes.proyectofinalmoviles.ui.movieList
 
-import com.ajcortes.proyectofinalmoviles.data.Movie
 import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 
 data class MovieListUiState(

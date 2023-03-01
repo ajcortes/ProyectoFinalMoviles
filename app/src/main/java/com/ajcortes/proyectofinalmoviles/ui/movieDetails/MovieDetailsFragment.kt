@@ -1,4 +1,4 @@
-package com.ajcortes.proyectofinalmoviles.ui.moviedetails
+package com.ajcortes.proyectofinalmoviles.ui.movieDetails
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,9 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.ajcortes.proyectofinalmoviles.R
 import com.ajcortes.proyectofinalmoviles.databinding.FragmentMovieDetailsBinding
-import com.ajcortes.proyectofinalmoviles.ui.movielist.MovieListVM.Companion.Factory
 import kotlinx.coroutines.launch
 
 class MovieDetailsFragment : Fragment() {

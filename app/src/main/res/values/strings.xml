@@ -22,4 +22,14 @@
     <string name="genero">Genero:</string>
     <string name="genero_example">Comedia</string>
     <string name="state">Estado:</string>
+    <string name="hintUser">Username</string>
+    <string name="butList">Peliculas</string>
+    <string name="listFav">Peliculas Favoritas</string>
+    <string name="credits">Creditos</string>
+    <string name="salir">Salir</string>
+    <string name="userInfo">Informacion usuario</string>
+    <string name="first_tab">Primera pestaña</string>
+    <string name="second_tab">Segunda pestaña</string>
+    <string name="menu">Menu</string>
+    <string name="notice">Noticias</string>
 </resources>
