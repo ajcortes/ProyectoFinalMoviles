@@ -42,7 +42,6 @@ class LoginVM(
                 )
 
             }
-            updateState()
         }
     }
 
@@ -51,7 +50,6 @@ class LoginVM(
         viewModelScope.launch {
             userPreferencesRepository.saveViewPagerVisto(viewPagerVisto)
 
-            updateState()
         }
     }
 
