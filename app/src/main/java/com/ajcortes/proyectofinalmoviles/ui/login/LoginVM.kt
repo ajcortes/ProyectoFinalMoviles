@@ -35,7 +35,13 @@ class LoginVM(
 //        Log.d("datasotre","nombre: $username")
         viewModelScope.launch {
             userPreferencesRepository.saveUsername(username)
+            _uiState.update{ currenteState ->
+                currenteState.copy(
+                    username=username,
+                    viewPagerVisto = true
+                )
 
+            }
             updateState()
         }
     }
