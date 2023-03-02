@@ -9,29 +9,29 @@ data class Movie (
     @PrimaryKey
     val id: Int,
     @ColumnInfo(name= "budget")
-    val budget: Int?,
+    val budget: Int,
     @ColumnInfo(name= "title")
-    val title: String?,
+    val title: String,
     @ColumnInfo(name= "overview")
-    val overview: String?,
+    val overview: String,
     @ColumnInfo(name= "popularity")
-    val popularity: Int?,
+    val popularity: Int,
     @ColumnInfo(name= "vote_average")
-    val vote_average: Int?,
+    val vote_average: Int,
     @ColumnInfo(name= "vote_count")
-    val vote_count: Int?,
+    val vote_count: Int,
     @ColumnInfo(name= "poster_path")
-    val poster_path: String?,
+    val poster_path: String,
     @ColumnInfo(name= "backdrop_path")
-    val backdrop_path: String?,
+    val backdrop_path: String,
     @ColumnInfo(name= "revenue")
-    val revenue: Int?,
+    val revenue: Int,
     @ColumnInfo(name= "runtime")
-    val runtime: Int?,
+    val runtime: Int,
     @ColumnInfo(name= "release_date")
-    val release_date: String?,
+    val release_date: String,
     @ColumnInfo(name= "status")
-    val status: String?,
+    val status: String,
     @ColumnInfo(name= "genre")
-    val genre: String?
+    val genre: String
 )

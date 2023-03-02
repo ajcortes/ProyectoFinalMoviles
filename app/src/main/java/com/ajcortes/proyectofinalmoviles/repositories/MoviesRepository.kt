@@ -78,16 +78,4 @@ class MoviesRepository(
     suspend fun getPopoularMovies() : Response<PopularMoviesResponse> {
         return movieApiService.getPopularMovies()
     }
-//
-//    suspend fun insertMovie(movie : Movie) = withContext(ioDispatcher){
-//        moviesDao.insertMovie(movie)
-//    }
-//
-//    suspend fun deleteMovie(movie : Movie) = withContext(ioDispatcher){
-//        moviesDao.deleteMovie(movie)
-//    }
-//
-//    suspend fun getFavMovies() : List<Movie> {
-//        return moviesDao.getAllMovies()
-//    }
 }

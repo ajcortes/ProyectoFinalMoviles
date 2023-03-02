@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.ajcortes.proyectofinalmoviles.R
+import com.ajcortes.proyectofinalmoviles.data.UserPreferences
 import com.ajcortes.proyectofinalmoviles.databinding.FragmentTab2NoticeBinding
+import com.ajcortes.proyectofinalmoviles.ui.login.LoginVM
 
 class Tab2NoticeFragment : Fragment() {
 
@@ -30,8 +33,16 @@ class Tab2NoticeFragment : Fragment() {
         return binding.root
     }
 
+    val loginVM by viewModels<LoginVM> { LoginVM.Factory }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.checkOcultar.setOnClickListener{
+            if(binding.checkOcultar.isChecked){
+                loginVM.saveViewPagerVisto(true)
+            }
+        }
 
         binding.btnMenu.setOnClickListener {
             findNavController().navigate(R.id.action_noticeFragment_to_menuFragment)
@@ -39,6 +50,4 @@ class Tab2NoticeFragment : Fragment() {
 
     }
 
-    companion object {
-    }
 }

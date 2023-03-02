@@ -1,29 +1,28 @@
 package com.ajcortes.proyectofinalmoviles.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ajcortes.proyectofinalmoviles.R
 import com.ajcortes.proyectofinalmoviles.data.PopularMovie
-import com.ajcortes.proyectofinalmoviles.databinding.MovieItemBinding
+import com.ajcortes.proyectofinalmoviles.databinding.FavMovieItemBinding
 
-class MovieAdapter(
-    private var _movieList : MutableList<PopularMovie>,
+class FavMovieAdapter(
+    private var _favMovieList : MutableList<PopularMovie>,
     private val onClickMovie : (Int) -> Unit,
     private val onClickFavourite: (Int) -> Unit
-) : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+) : RecyclerView.Adapter<FavMovieAdapter.FavMovieViewHolder>() {
 
     companion object{
         const val DRAWABLE = "drawable"
     }
 
-    val movieList get() = _movieList
+    val favMovieList get() = _favMovieList
 
-    class MovieViewHolder(view : View) : RecyclerView.ViewHolder(view){
+    class FavMovieViewHolder(view : View) : RecyclerView.ViewHolder(view){
 
-        private val binding = MovieItemBinding.bind(view)
+        private val binding = FavMovieItemBinding.bind(view)
 
         fun bind(
             movie: PopularMovie,
@@ -36,7 +35,8 @@ class MovieAdapter(
 
             binding.tvTitle.text = movie.title
             binding.tvYearRelease.text = movie.release_date
-            binding.tvOverviewItem.text = movie.overview
+//            binding.tvDuration.text = movie.runtime.toString()
+//            binding.tvGenre.text = movie.genre
 
             binding.root.setOnClickListener{
                 onClickMovie(movie.id)
@@ -49,22 +49,22 @@ class MovieAdapter(
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavMovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return MovieViewHolder(layoutInflater.inflate(R.layout.movie_item,parent,false))
+        return FavMovieViewHolder(layoutInflater.inflate(R.layout.movie_item,parent,false))
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = movieList[position]
+    override fun onBindViewHolder(holder: FavMovieViewHolder, position: Int) {
+        val movie = favMovieList[position]
         holder.bind(movie,onClickMovie,onClickFavourite)
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return favMovieList.size
     }
 
     fun setMovieList(movies : List<PopularMovie>){
-        _movieList = movies.toMutableList()
+        _favMovieList = movies.toMutableList()
     }
 
 }

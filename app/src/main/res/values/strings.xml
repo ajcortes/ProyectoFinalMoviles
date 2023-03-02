@@ -32,4 +32,6 @@
     <string name="second_tab">Segunda pestaña</string>
     <string name="menu">Menu</string>
     <string name="notice">Noticias</string>
+    <string name="titulo_original">Titulo original:</string>
+    <string name="ocultar">Ocultar noticias</string>
 </resources>

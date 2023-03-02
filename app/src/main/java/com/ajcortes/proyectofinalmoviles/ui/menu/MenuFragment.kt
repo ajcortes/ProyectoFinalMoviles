@@ -45,7 +45,7 @@ class MenuFragment : Fragment() {
         }
 
         binding.butExit.setOnClickListener{
-//            findNavController().navigate(R.id.action_menuFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_menuFragment_to_loginFragment)
         }
 
         return binding.root
