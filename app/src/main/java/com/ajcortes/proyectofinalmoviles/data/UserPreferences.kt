@@ -8,7 +8,5 @@ data class UserPreferences (
         const val SETTINGS_FILE = "settings"
         const val USER_NAME = "username"
         const val VIEW_PAGER_VISTO = false
-        const val TRUE = true
-        const val FALSE = false
     }
 }
