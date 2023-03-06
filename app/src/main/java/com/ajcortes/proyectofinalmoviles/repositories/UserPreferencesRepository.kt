@@ -21,7 +21,8 @@ class UserPreferencesRepository(
 
             return@map UserPreferences(
                 username = username,
-                viewPagerVisto = viewPagerVisto
+                viewPagerVisto = viewPagerVisto,
+                navagcion = false
             )
         }
     }

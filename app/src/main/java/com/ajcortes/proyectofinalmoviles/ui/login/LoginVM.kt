@@ -36,7 +36,8 @@ class LoginVM(
             userPreferencesRepository.saveUsername(username)
             _uiState.update{ currenteState ->
                 currenteState.copy(
-                    username=username
+                    username=username,
+                    navagcion = true,
                 )
 
             }

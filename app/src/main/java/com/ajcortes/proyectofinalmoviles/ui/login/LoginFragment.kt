@@ -2,6 +2,7 @@ package com.ajcortes.proyectofinalmoviles.ui.login
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,12 +24,17 @@ class LoginFragment : Fragment() {
     val binding
         get() = _binding!!
 
-    private val loginVM by viewModels<LoginVM> { LoginVM.Factory }
+    private val loginVM : LoginVM by viewModels<LoginVM> { LoginVM.Factory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setCollectors()
     }
 
     @SuppressLint("ResourceType")
@@ -45,27 +51,34 @@ class LoginFragment : Fragment() {
 
     private fun setListeners(){
         binding.butLogin.setOnClickListener{
-            setCollectors(binding.txtUser.text.toString())
+            validateName()
         }
     }
 
-    private fun setCollectors(username: String){
-        if(username.isBlank())
+    private fun validateName() {
+        if(binding.txtUser.text.toString().isBlank())
         {
             Snackbar.make(requireView(), "Ingrese un nombre de usuario", Snackbar.LENGTH_SHORT).show()
         }else
         {
-            loginVM.saveUsername(username)
+            loginVM.saveUsername(binding.txtUser.text.toString())
+        }
+    }
 
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED){
-                    loginVM.uiState.collect{ userPreferences->
-                        if(userPreferences.viewPagerVisto == null || !userPreferences.viewPagerVisto)
+    private fun setCollectors(){
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED){
+                loginVM.uiState.collect{ userPreferences->
+                    if(userPreferences.navagcion)
+                    {
+                        if(userPreferences.viewPagerVisto)
                         {
-                            findNavController().navigate(R.id.action_loginFragment_to_noticeFragment)
+                            Log.d("LoginFragment", "ViewPager visto")
+                            findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
                         }else
                         {
-                            findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
+                            Log.d("LoginFragment", "ViewPager no visto")
+                            findNavController().navigate(R.id.action_loginFragment_to_noticeFragment)
                         }
                     }
                 }
