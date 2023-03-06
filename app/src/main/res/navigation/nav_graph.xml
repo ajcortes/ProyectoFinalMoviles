@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.ajcortes.proyectofinalmoviles.ui.userInfo.UserFragment"
+        android:name="com.ajcortes.proyectofinalmoviles.ui.login.UserFragment"
         android:label="UserFragment" >
         <action
             android:id="@+id/action_userFragment_to_menuFragment"

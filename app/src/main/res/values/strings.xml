@@ -37,5 +37,7 @@
     <string name="Login">Login</string>
     <string name="Volver">Volver</string>
     <string name="comments">Comentarios (0)</string>
-    <string name="placeholderUser">Username: Prueba\nEmail: Prueba@gmail.com \nCreation Date: 21/02/1999 </string>
+    <string name="placeholderUser">Email: Prueba@gmail.com \nCreation Date: 21/02/1999 </string>
+    <string name="Nombre">Nombre:</string>
+    <string name="UsernamePrueba">Prueba</string>
 </resources>
