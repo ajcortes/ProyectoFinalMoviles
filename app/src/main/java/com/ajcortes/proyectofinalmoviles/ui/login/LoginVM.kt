@@ -25,20 +25,18 @@ class LoginVM(
 
     private suspend fun updateState(){
         userPreferencesRepository.getUserPreferences().collect{ userPreferencesFlow ->
-            _uiState.update { currenteState ->
+            _uiState.update { currentState ->
                 userPreferencesFlow.copy()
             }
         }
     }
 
     fun saveUsername(username : String){
-//        Log.d("datasotre","nombre: $username")
         viewModelScope.launch {
             userPreferencesRepository.saveUsername(username)
             _uiState.update{ currenteState ->
                 currenteState.copy(
-                    username=username,
-                    viewPagerVisto = true
+                    username=username
                 )
 
             }
@@ -46,10 +44,8 @@ class LoginVM(
     }
 
     fun saveViewPagerVisto(viewPagerVisto : Boolean){
-//        Log.d("datastore","Skip: $viewPagerVisto")
         viewModelScope.launch {
             userPreferencesRepository.saveViewPagerVisto(viewPagerVisto)
-
         }
     }
 

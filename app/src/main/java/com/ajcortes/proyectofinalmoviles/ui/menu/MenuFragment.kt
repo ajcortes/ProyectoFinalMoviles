@@ -33,15 +33,11 @@ class MenuFragment : Fragment() {
         }
 
         binding.butFavFilms.setOnClickListener{
-//            findNavController().navigate(R.id.action_menuFragment_to_favouriteFilmsFragment)
+            findNavController().navigate(R.id.action_menuFragment_to_movieFavListFragment)
         }
 
         binding.butUser.setOnClickListener{
-//            findNavController().navigate(R.id.action_menuFragment_to_userFragment)
-        }
-
-        binding.butCredits.setOnClickListener{
-//            findNavController().navigate(R.id.action_menuFragment_to_creditFragment)
+            findNavController().navigate(R.id.action_menuFragment_to_userFragment)
         }
 
         binding.butExit.setOnClickListener{

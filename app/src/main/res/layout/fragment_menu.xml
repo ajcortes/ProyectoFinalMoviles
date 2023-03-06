@@ -15,8 +15,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/butList"
-            app:layout_constraintBottom_toTopOf="@+id/butFavFilms"
+            app:layout_constraintBottom_toTopOf="@+id/butUser"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:rippleColor="@color/white" />
@@ -27,22 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/listFav"
-            app:layout_constraintBottom_toTopOf="@+id/butUser"
+            app:layout_constraintBottom_toTopOf="@+id/butExit"
             app:layout_constraintEnd_toEndOf="@+id/butFilms"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/butFilms"
-            app:layout_constraintTop_toBottomOf="@+id/butFilms" />
-
-        <Button
-            android:id="@+id/butCredits"
-            style="@style/buttons_ghibli"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/credits"
-            app:layout_constraintBottom_toTopOf="@+id/butExit"
-            app:layout_constraintEnd_toEndOf="@+id/butUser"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/butUser"
             app:layout_constraintTop_toBottomOf="@+id/butUser" />
 
         <Button
@@ -53,10 +42,9 @@
             android:layout_marginBottom="@dimen/fragment_horizontal_margin"
             android:text="@string/salir"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/butCredits"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/butCredits"
-            app:layout_constraintTop_toBottomOf="@+id/butCredits" />
+            app:layout_constraintEnd_toEndOf="@+id/butFavFilms"
+            app:layout_constraintStart_toStartOf="@+id/butFavFilms"
+            app:layout_constraintTop_toBottomOf="@+id/butFavFilms" />
 
         <Button
             android:id="@+id/butUser"
@@ -64,10 +52,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/userInfo"
-            app:layout_constraintBottom_toTopOf="@+id/butCredits"
+            app:layout_constraintBottom_toTopOf="@+id/butFavFilms"
             app:layout_constraintEnd_toEndOf="@+id/butFavFilms"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/butFavFilms"
-            app:layout_constraintTop_toBottomOf="@+id/butFavFilms" />
+            app:layout_constraintTop_toBottomOf="@+id/butFilms" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

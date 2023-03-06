@@ -30,10 +30,11 @@
 
     <Button
         android:id="@+id/butLogin"
+        style="@style/buttons_ghibli"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/heightLogin"
-        android:text="Button"
+        android:text="@string/Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUser" />

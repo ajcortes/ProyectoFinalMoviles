@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_movieListFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieDetailsFragment"
@@ -32,11 +35,11 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_noticeFragment"
-            app:destination="@id/noticeFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_noticeFragment"
+            app:destination="@id/noticeFragment" />
     </fragment>
     <fragment
         android:id="@+id/noticeFragment"
@@ -56,5 +59,41 @@
         <action
             android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_movieFavListFragment"
+            app:destination="@id/movieFavListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFavListFragment"
+        android:name="com.ajcortes.proyectofinalmoviles.ui.movieFavList.MovieFavListFragment"
+        android:label="MovieFavListFragment" >
+        <action
+            android:id="@+id/action_movieFavListFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_movieFavListFragment_to_movieFavDetailsFragment"
+            app:destination="@id/movieFavDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieFavDetailsFragment"
+        android:name="com.ajcortes.proyectofinalmoviles.ui.movieFavDetails.MovieFavDetailsFragment"
+        android:label="MovieFavDetailsFragment" >
+        <action
+            android:id="@+id/action_movieFavDetailsFragment_to_movieFavListFragment"
+            app:destination="@id/movieFavListFragment" />
+        <argument
+            android:name="idMovie"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="com.ajcortes.proyectofinalmoviles.ui.userInfo.UserFragment"
+        android:label="UserFragment" >
+        <action
+            android:id="@+id/action_userFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBannerDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/fragment_vertical_margin"
+        android:scaleType="fitXY"
+        android:src="@drawable/kiki_delivery_service_banner"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/tvJapan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tvJapan"
+        style="@style/title_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="@dimen/wAllScreen"
+        android:gravity="center"
+        android:text="@string/japan_example"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:text="@string/presupuesto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvBudgetDetails"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvBudgetDetails"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvDate"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:text="@string/presupuesto_example"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/tvJapan" />
+
+    <TextView
+        android:id="@+id/textView11"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_horizontal_margin"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:text="@string/ganancias"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/tvRevenue"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvDate"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:text="@string/ganancias_example"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/tvBudgetDetails" />
+
+    <TextView
+        android:id="@+id/textView14"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/year"
+        app:layout_constraintStart_toEndOf="@+id/tvBudgetDetails"
+        app:layout_constraintTop_toTopOf="@+id/tvBudgetDetails" />
+
+    <TextView
+        android:id="@+id/tvYear"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvDate"
+        android:text="@string/year_example"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView16"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/duration"
+        app:layout_constraintStart_toEndOf="@+id/tvBudgetDetails"
+        app:layout_constraintTop_toTopOf="@+id/tvRevenue" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvDate"
+        android:text="@string/duration_example"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView18"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:text="@string/resumen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvGenreDetail" />
+
+    <Button
+        android:id="@+id/butVolverDetail"
+        style="@style/buttons_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+        android:layout_marginBottom="@dimen/fragment_vertical_margin"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOverview"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:width="@dimen/wAllScreen"
+        android:height="@dimen/hOverview"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/fragment_horizontal_margin"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:text="@string/genero"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/tvGenreDetail"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvDate"
+        android:text="@string/genero_example"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toTopOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView10"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/state"
+        app:layout_constraintStart_toEndOf="@+id/tvBudgetDetails"
+        app:layout_constraintTop_toTopOf="@+id/tvGenreDetail" />
+
+    <TextView
+        android:id="@+id/tvState"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/tvDate"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toTopOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/text_ghibli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="@dimen/fragment_vertical_margin"
+        android:text="@string/comments"
+        app:layout_constraintStart_toStartOf="@+id/tvOverview"
+        app:layout_constraintTop_toBottomOf="@+id/tvOverview" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

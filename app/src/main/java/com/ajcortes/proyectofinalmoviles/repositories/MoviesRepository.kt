@@ -16,15 +16,15 @@ class MoviesRepository(
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 ) {
 
-    suspend fun insertMovie(movie : Movie) = withContext(ioDispatcher){
+    suspend fun insertMovie(movie: PopularMovie) = withContext(ioDispatcher){
         moviesDao.insertMovie(movie)
     }
 
-    suspend fun deleteMovie(movie : Movie) = withContext(ioDispatcher){
+    suspend fun deleteMovie(movie : PopularMovie) = withContext(ioDispatcher){
         moviesDao.deleteMovie(movie)
     }
 
-    fun getFavMovies() : Flow<List<Movie>>{
+    fun getFavMovies() : Flow<List<PopularMovie>>{
         return moviesDao.getAllMovies()
     }
 

@@ -5,10 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ajcortes.proyectofinalmoviles.data.Movie
+import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 
 @Database(
-    entities = [Movie::class],
-    version = 1,
+    entities = [PopularMovie::class],
+    version = 3,
     exportSchema = false
 )
 abstract class LocalDatabase : RoomDatabase() {

@@ -11,7 +11,7 @@ import com.ajcortes.proyectofinalmoviles.databinding.FavMovieItemBinding
 class FavMovieAdapter(
     private var _favMovieList : MutableList<PopularMovie>,
     private val onClickMovie : (Int) -> Unit,
-    private val onClickFavourite: (Int) -> Unit
+    private val onClickUnfavourite: (Int) -> Unit
 ) : RecyclerView.Adapter<FavMovieAdapter.FavMovieViewHolder>() {
 
     companion object{
@@ -27,7 +27,7 @@ class FavMovieAdapter(
         fun bind(
             movie: PopularMovie,
             onClickMovie: (Int) -> Unit,
-            onClickFavourite: (Int) -> Unit
+            onClickUnfavourite: (Int) -> Unit
         ){
             val context = binding.ivPortada.context
             val idPortada = context.resources.getIdentifier("princess_mononoke", DRAWABLE,context.packageName)
@@ -35,15 +35,14 @@ class FavMovieAdapter(
 
             binding.tvTitle.text = movie.title
             binding.tvYearRelease.text = movie.release_date
-//            binding.tvDuration.text = movie.runtime.toString()
-//            binding.tvGenre.text = movie.genre
+            binding.tvOverviewItem.text = movie.overview
 
             binding.root.setOnClickListener{
                 onClickMovie(movie.id)
             }
 
-            binding.ivStar.setOnClickListener{
-                onClickFavourite(movie.id)
+            binding.ivStarFill.setOnClickListener{
+                onClickUnfavourite(movie.id)
             }
         }
 
@@ -51,20 +50,16 @@ class FavMovieAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavMovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return FavMovieViewHolder(layoutInflater.inflate(R.layout.movie_item,parent,false))
+        return FavMovieViewHolder(layoutInflater.inflate(R.layout.fav_movie_item,parent,false))
     }
 
     override fun onBindViewHolder(holder: FavMovieViewHolder, position: Int) {
         val movie = favMovieList[position]
-        holder.bind(movie,onClickMovie,onClickFavourite)
+        holder.bind(movie,onClickMovie,onClickUnfavourite)
     }
 
     override fun getItemCount(): Int {
         return favMovieList.size
-    }
-
-    fun setMovieList(movies : List<PopularMovie>){
-        _favMovieList = movies.toMutableList()
     }
 
 }

@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
+import com.ajcortes.proyectofinalmoviles.data.Movie
+import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 import com.ajcortes.proyectofinalmoviles.dependencies.ProyectoFinalMoviles
 import com.ajcortes.proyectofinalmoviles.repositories.MoviesRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -66,6 +68,22 @@ class MovieListVM(
 //            }
 //        }
 //    }
+
+    fun insertMovie(movieId : Int){
+        viewModelScope.launch {
+            val movie = moviesRepository.getMovie(movieId)
+            val movieDef : Movie = movie.body()!!
+            val movieDef2 = PopularMovie(movieDef.poster_path,false,movieDef.overview,movieDef.release_date,movieDef.id,movieDef.title,"en",movieDef.title,movieDef.backdrop_path,movieDef.popularity.toFloat(),movieDef.vote_count,false,movieDef.vote_average.toFloat())
+            val movieComp = moviesRepository.getMovieDT(movieId)
+
+            if(movieComp == null)
+            {
+                moviesRepository.insertMovie(movieDef2)
+            }else{
+                //Ya esta dentro
+            }
+        }
+    }
 
     companion object {
         const val NUM_FILMS = 10

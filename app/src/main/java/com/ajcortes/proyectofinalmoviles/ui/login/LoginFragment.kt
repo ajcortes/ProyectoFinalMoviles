@@ -59,13 +59,13 @@ class LoginFragment : Fragment() {
 
             lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED){
-                    loginVM.uiState.collect{ userSettings->
-                        if(userSettings.viewPagerVisto)
-                        {
-                            findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
-                        }else
+                    loginVM.uiState.collect{ userPreferences->
+                        if(userPreferences.viewPagerVisto == null || !userPreferences.viewPagerVisto)
                         {
                             findNavController().navigate(R.id.action_loginFragment_to_noticeFragment)
+                        }else
+                        {
+                            findNavController().navigate(R.id.action_loginFragment_to_menuFragment)
                         }
                     }
                 }

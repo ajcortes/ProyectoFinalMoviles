@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/butVolver"
+            style="@style/buttons_ghibli"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:layout_marginEnd="@dimen/fragment_vertical_margin"
+            android:text="@string/back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUser" />
+
+        <TextView
+            android:id="@+id/tvUser"
+            style="@style/text_ghibli"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/fragment_horizontal_margin"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:layout_marginEnd="@dimen/fragment_horizontal_margin"
+            android:text="@string/placeholderUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            style="@style/title_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-1dp"
+            android:layout_marginTop="@dimen/fragment_vertical_margin"
+            android:text="@string/ocultar"
+            app:layout_constraintStart_toStartOf="@+id/tvUser"
+            app:layout_constraintTop_toBottomOf="@+id/tvUser" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

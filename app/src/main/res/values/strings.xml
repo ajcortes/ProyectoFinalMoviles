@@ -28,10 +28,14 @@
     <string name="credits">Creditos</string>
     <string name="salir">Salir</string>
     <string name="userInfo">Informacion usuario</string>
-    <string name="first_tab">Primera pestaña</string>
-    <string name="second_tab">Segunda pestaña</string>
+    <string name="first_tab">Esta es una aplicación en desarrollo con el objetivo de poder tener un catalogo de las peliculas que más le gustan al usuario además de poder hacer comentarios sobre ellas</string>
+    <string name="second_tab">En esta zona se plantea ir añadiendo las novedades de la aplicación según se vayan añadiendo a esta.</string>
     <string name="menu">Menu</string>
     <string name="notice">Noticias</string>
     <string name="titulo_original">Titulo original:</string>
     <string name="ocultar">Ocultar noticias</string>
+    <string name="Login">Login</string>
+    <string name="Volver">Volver</string>
+    <string name="comments">Comentarios (0)</string>
+    <string name="placeholderUser">Username: Prueba\nEmail: Prueba@gmail.com \nCreation Date: 21/02/1999 </string>
 </resources>
