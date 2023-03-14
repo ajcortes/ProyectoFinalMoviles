@@ -12,6 +12,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.ajcortes.proyectofinalmoviles.databinding.FragmentMovieDetailsBinding
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 
 class MovieDetailsFragment : Fragment() {
@@ -67,6 +68,9 @@ class MovieDetailsFragment : Fragment() {
                             binding.tvJapan.text = it.title
                             binding.tvBudgetDetails.text = it.budget.toString() + "$"
                             binding.tvRevenue.text = it.revenue.toString() + "$"
+                            Glide.with(requireContext())
+                            .load("https://image.tmdb.org/t/p/original"+it.backdrop_path)
+                            .into(binding.ivBannerDetails)
                             binding.tvState.text = it.status
                             binding.tvGenreDetail.text = it.genre
                             binding.tvTime.text = it.runtime.toString()+ " mins"

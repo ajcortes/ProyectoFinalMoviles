@@ -11,7 +11,6 @@
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/fragment_vertical_margin"
         android:scaleType="fitXY"
-        android:src="@drawable/kiki_delivery_service_banner"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/tvJapan"
         app:layout_constraintEnd_toEndOf="parent"

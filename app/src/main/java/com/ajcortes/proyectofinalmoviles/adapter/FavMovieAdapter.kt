@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ajcortes.proyectofinalmoviles.R
 import com.ajcortes.proyectofinalmoviles.data.PopularMovie
 import com.ajcortes.proyectofinalmoviles.databinding.FavMovieItemBinding
+import com.bumptech.glide.Glide
 
 class FavMovieAdapter(
     private var _favMovieList : MutableList<PopularMovie>,
@@ -30,9 +31,12 @@ class FavMovieAdapter(
             onClickUnfavourite: (Int) -> Unit
         ){
             val context = binding.ivPortada.context
-            val idPortada = context.resources.getIdentifier("princess_mononoke", DRAWABLE,context.packageName)
-            binding.ivPortada.setImageResource(idPortada)
+//            val idPortada = context.resources.getIdentifier("princess_mononoke", DRAWABLE,context.packageName)
+//            binding.ivPortada.setImageResource(idPortada)
 
+            Glide.with(context)
+                .load("https://image.tmdb.org/t/p/w500"+movie.poster_path)
+                .into(binding.ivPortada)
             binding.tvTitle.text = movie.title
             binding.tvYearRelease.text = movie.release_date
             binding.tvOverviewItem.text = movie.overview

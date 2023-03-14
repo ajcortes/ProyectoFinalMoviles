@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -32,6 +35,7 @@ class MovieListFragment : Fragment() {
 
     private var movieListState : MutableList<Movie> = mutableListOf()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,7 +54,6 @@ class MovieListFragment : Fragment() {
         binding.butVolver.setOnClickListener{
             findNavController().navigate(R.id.action_movieListFragment_to_menuFragment)
         }
-
         return binding.root
     }
 
@@ -105,5 +108,6 @@ class MovieListFragment : Fragment() {
         val action = MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(movieId)
         findNavController().navigate(action)
     }
+
 
 }
