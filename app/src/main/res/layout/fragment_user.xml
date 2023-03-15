@@ -14,11 +14,11 @@
             style="@style/buttons_ghibli"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fragment_vertical_margin"
             android:layout_marginEnd="@dimen/fragment_vertical_margin"
+            android:layout_marginBottom="@dimen/fragment_vertical_margin"
             android:text="@string/back"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvUser" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
             android:id="@+id/tvUser"
@@ -64,5 +64,32 @@
             android:text="@string/UsernamePrueba"
             app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+        <ImageView
+            android:id="@+id/ivUser"
+            android:layout_width="178dp"
+            android:layout_height="219dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox"
+            app:layout_constraintVertical_bias="0.25"
+            app:srcCompat="@drawable/hombre" />
+
+        <ImageView
+            android:id="@+id/ivBrowse"
+            android:layout_width="56dp"
+            android:layout_height="47dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivUser"
+            app:layout_constraintStart_toStartOf="@+id/ivUser"
+            app:srcCompat="@drawable/camara" />
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="59dp"
+            android:layout_height="47dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivUser"
+            app:layout_constraintEnd_toEndOf="@+id/ivUser"
+            app:srcCompat="@drawable/papelera_de_reciclaje" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

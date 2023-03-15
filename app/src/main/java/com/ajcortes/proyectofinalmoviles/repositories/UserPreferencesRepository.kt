@@ -18,11 +18,13 @@ class UserPreferencesRepository(
             val username = userPreferences[stringPreferencesKey(UserPreferences.USER_NAME)]
                 ?: UserPreferences.USER_NAME
             val viewPagerVisto = userPreferences[booleanPreferencesKey(UserPreferences.VIEW_PAGER_VISTO.toString())] ?: false
+            val photo = userPreferences[stringPreferencesKey(UserPreferences.PHOTO)] ?: ""
 
             return@map UserPreferences(
                 username = username,
                 viewPagerVisto = viewPagerVisto,
-                navagcion = false
+                navagcion = false,
+                photo = photo
             )
         }
     }
@@ -36,6 +38,12 @@ class UserPreferencesRepository(
     suspend fun saveViewPagerVisto(viewPagerVisto : Boolean){
         userDataStore.edit { userPreferences ->
             userPreferences[booleanPreferencesKey(UserPreferences.VIEW_PAGER_VISTO.toString())] = viewPagerVisto
+        }
+    }
+
+    suspend fun savePhoto(photoName : String){
+        userDataStore.edit { userPreferences ->
+            userPreferences[stringPreferencesKey(UserPreferences.PHOTO)] = photoName
         }
     }
 }

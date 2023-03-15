@@ -40,4 +40,12 @@
     <string name="placeholderUser">Email: Prueba@gmail.com \nCreation Date: 21/02/1999 </string>
     <string name="Nombre">Nombre:</string>
     <string name="UsernamePrueba">Prueba</string>
+    <string name="films">Peliculas</string>
+    <string name="favourite">Favoritos</string>
+    <string name="personal">Usuario</string>
+    <string name="photo">Foto</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="hacer_foto">Toma una foto</string>
+    <string name="permisos">Debes dar los permisos necesarios</string>
 </resources>

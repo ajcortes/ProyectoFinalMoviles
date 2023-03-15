@@ -23,6 +23,17 @@ class LoginVM(
         }
     }
 
+    fun eliminarFoto(){
+        viewModelScope.launch {
+            userPreferencesRepository.savePhoto("")
+            _uiState.update {
+                it.copy(
+                    photo = ""
+                )
+            }
+        }
+    }
+
     private suspend fun updateState(){
         userPreferencesRepository.getUserPreferences().collect{ userPreferencesFlow ->
             _uiState.update { currentState ->

@@ -95,5 +95,12 @@
         <action
             android:id="@+id/action_userFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_userFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.ajcortes.proyectofinalmoviles.ui.photo.PhotoFragment"
+        android:label="PhotoFragment" />
 </navigation>
