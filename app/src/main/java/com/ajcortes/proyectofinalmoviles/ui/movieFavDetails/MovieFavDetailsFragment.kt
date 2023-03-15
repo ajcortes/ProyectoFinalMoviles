@@ -96,7 +96,7 @@ class MovieFavDetailsFragment : Fragment() {
     }
 
     private fun setAnimations(){
-        animAparecer = AnimationUtils.loadAnimation(requireContext(), R.anim.view_appear)
+        animAparecer = AnimationUtils.loadAnimation(requireContext(), R.anim.abrir_imagen)
 
         animAparecer.setAnimationListener(object : Animation.AnimationListener{
             override fun onAnimationStart(animation: Animation?) {

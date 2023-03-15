@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
+    android:label="Login"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/movieListFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.movieList.MovieListFragment"
-        android:label="fragment_movie_list"
-        tools:layout="@layout/fragment_movie_list" >
+        android:label="Lista de peliculas populares"
+        tools:layout="@layout/fragment_movie_list">
         <action
             android:id="@+id/action_movieListFragment_to_movieDetailsFragment"
             app:destination="@id/movieDetailsFragment" />
@@ -20,8 +21,8 @@
     <fragment
         android:id="@+id/movieDetailsFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.movieDetails.MovieDetailsFragment"
-        android:label="fragment_movie_details"
-        tools:layout="@layout/fragment_movie_details" >
+        android:label="Detalles de la pelicula"
+        tools:layout="@layout/fragment_movie_details">
         <argument
             android:name="idMovie"
             app:argType="integer" />
@@ -32,8 +33,8 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.login.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -44,7 +45,7 @@
     <fragment
         android:id="@+id/noticeFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.viewPager.NoticeFragment"
-        android:label="NoticeFragment" >
+        android:label="Noticias">
         <action
             android:id="@+id/action_noticeFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -52,7 +53,7 @@
     <fragment
         android:id="@+id/menuFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.menu.MenuFragment"
-        android:label="MenuFragment" >
+        android:label="Menu">
         <action
             android:id="@+id/action_menuFragment_to_movieListFragment"
             app:destination="@id/movieListFragment" />
@@ -69,7 +70,7 @@
     <fragment
         android:id="@+id/movieFavListFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.movieFavList.MovieFavListFragment"
-        android:label="MovieFavListFragment" >
+        android:label="Lista de tus peliculas favoritas">
         <action
             android:id="@+id/action_movieFavListFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -80,7 +81,7 @@
     <fragment
         android:id="@+id/movieFavDetailsFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.movieFavDetails.MovieFavDetailsFragment"
-        android:label="MovieFavDetailsFragment" >
+        android:label="Detalles de la pelicula">
         <action
             android:id="@+id/action_movieFavDetailsFragment_to_movieFavListFragment"
             app:destination="@id/movieFavListFragment" />
@@ -91,7 +92,7 @@
     <fragment
         android:id="@+id/userFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.login.UserFragment"
-        android:label="UserFragment" >
+        android:label="Informacion del usuario">
         <action
             android:id="@+id/action_userFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
@@ -102,5 +103,5 @@
     <fragment
         android:id="@+id/photoFragment"
         android:name="com.ajcortes.proyectofinalmoviles.ui.photo.PhotoFragment"
-        android:label="PhotoFragment" />
+        android:label="Camara" />
 </navigation>
